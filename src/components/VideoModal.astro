@@ -1,0 +1,74 @@
+---
+---
+
+<div id="video-modal" class="modal-backdrop" role="dialog" aria-modal="true">
+  <div class="modal-content">
+    <button id="close-video-modal" class="modal-close" aria-label="Close modal">&times;</button>
+    <div class="video-container">
+      <!-- Simulated High Definition Video Player with Dental Case Walkthrough -->
+      <div class="video-placeholder">
+        <iframe 
+          id="modal-iframe" 
+          width="100%" 
+          height="100%" 
+          src="" 
+          title="NovoGuide Clinician Testimonial Video" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #000;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  const modal = document.getElementById('video-modal');
+  const closeBtn = document.getElementById('close-video-modal');
+  const iframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
+
+  function closeModal() {
+    if (modal && iframe) {
+      modal.classList.remove('active');
+      iframe.src = '';
+    }
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Listen for custom play events
+  window.addEventListener('open-video', (e: any) => {
+    const videoUrl = e.detail?.url || 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+    if (modal && iframe) {
+      iframe.src = videoUrl;
+      modal.classList.add('active');
+    }
+  });
+</script>

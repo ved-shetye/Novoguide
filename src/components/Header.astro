@@ -1,0 +1,221 @@
+---
+
+---
+
+<header class="header">
+  <div class="container header-container">
+    <a href="#" class="logo">
+      <div class="logo-icon pb-2">n</div>
+      <span class="logo-text">novoguide</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#why-novoguide" class="nav-link">Why NovoGuide</a>
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="#case-studies" class="nav-link">Case Studies</a>
+      <a href="#blog" class="nav-link">Blog</a>
+      <a href="#about" class="nav-link">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#join" class="btn-outline-gold cta-nav">
+        <span>JOIN NOVOGUIDE</span>
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+            points="12 5 19 12 12 19"></polyline></svg
+        >
+      </a>
+
+      <button id="menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href="#why-novoguide" class="mobile-link">Why NovoGuide</a>
+      <a href="#how-it-works" class="mobile-link">How It Works</a>
+      <a href="#case-studies" class="mobile-link">Case Studies</a>
+      <a href="#blog" class="mobile-link">Blog</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#join" class="btn-gold mobile-cta">JOIN NOVOGUIDE</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(10, 12, 14, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 1.1rem 0;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-dark-title);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--gold-primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--gold-primary);
+    font-size: 2.2rem;
+    background: var(--gold-light);
+  }
+
+  .logo-text {
+    font-family: var(--font-sans);
+    letter-spacing: -0.03em;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+  }
+
+  .nav-link {
+    font-size: 0.825rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dark-body);
+    position: relative;
+    padding: 0.3rem 0;
+  }
+
+  .nav-link:hover {
+    color: var(--gold-primary);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--gold-primary);
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+
+  .mobile-toggle .bar {
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-dark-title);
+    transition: var(--transition-smooth);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-dark-main);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .mobile-menu.open {
+    max-height: 380px;
+  }
+
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .mobile-link {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark-title);
+  }
+
+  .mobile-cta {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .desktop-nav,
+    .cta-nav {
+      display: none;
+    }
+    .mobile-toggle {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (toggleBtn && mobileMenu) {
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".mobile-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+    });
+  }
+</script>

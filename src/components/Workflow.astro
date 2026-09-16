@@ -1,0 +1,203 @@
+---
+import { Image } from "astro:assets";
+import img1 from "../assets/Workflow/img1.png";
+import img2 from "../assets/Workflow/img2.png";
+import img3 from "../assets/Workflow/img3.png";
+import img4 from "../assets/Workflow/img4.png";
+import img5 from "../assets/Workflow/img5.png";
+
+const steps = [
+  {
+    num: "01",
+    title: "UPLOAD",
+    sub: "CBCT & Intraoral scan",
+    desc: "Upload patient CBCT DICOM and intraoral STL files via our encrypted portal.",
+    image: img1,
+  },
+  {
+    num: "02",
+    title: "RADIOLOGY ASSESSMENT & IMPLANT PLANNING",
+    sub: "CBCT Nerve & Bone Review",
+    desc: "Our dental radiologists review bone density, nerve paths and sinus boundaries.",
+    image: img2,
+  },
+  {
+    num: "03",
+    title: "IMPLANT PLANNING",
+    sub: "Prosthetic-driven position",
+    desc: "Implant position and surgical approach planned by our experienced implant experts.",
+    image: img3,
+  },
+  {
+    num: "04",
+    title: "YOUR APPROVAL",
+    sub: "Review & Request Changes",
+    desc: "You review the 3D plan, request modifications or approve with full confidence.",
+    image: img4,
+  },
+  {
+    num: "05",
+    title: "GUIDE PRODUCTION",
+    sub: "Precision Manufacture & Dispatch",
+    desc: "Your custom surgical guide is manufactured, verified and dispatched to your clinic.",
+    image: img5,
+  },
+];
+---
+
+<section id="how-it-works" class="workflow-section theme-dark section-padding">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">ONE CASE. ONE COMPLETE WORKFLOW.</span>
+    </div>
+
+    <!-- Workflow Steps Grid -->
+    <div class="workflow-grid">
+      {
+        steps.map((step, idx) => (
+          <div class="workflow-card">
+            <div class="card-header">
+              <span class="step-badge">{step.num}</span>
+              <h3 class="step-title">{step.title}</h3>
+              {idx < steps.length - 1 && (
+                <div class="step-arrow">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </div>
+              )}
+            </div>
+
+            <p class="step-sub">{step.sub}</p>
+
+            <div class="step-image-box">
+              <Image src={step.image} alt={step.title} class="step-img" />
+              <div class="image-overlay" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .workflow-section {
+    background-color: var(--bg-dark-main);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 1.25rem auto;
+  }
+
+  .section-title {
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    font-weight: 400;
+    color: var(--text-dark-title);
+  }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+  }
+
+  .workflow-card {
+    background: var(--bg-dark-card);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+  }
+
+  .workflow-card:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .step-badge {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold-primary);
+  }
+
+  .step-title {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dark-title);
+  }
+
+  .step-arrow {
+    margin-left: auto;
+    color: var(--text-dark-muted);
+  }
+
+  .step-sub {
+    font-size: 0.8rem;
+    color: var(--text-dark-muted);
+    margin-bottom: 1rem;
+    min-height: 2.4rem;
+    line-height: 1.35;
+  }
+
+  .step-image-box {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .step-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .workflow-card:hover .step-img {
+    transform: scale(1.08);
+  }
+
+  @media (max-width: 1100px) {
+    .workflow-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .workflow-grid {
+      grid-template-columns: 1fr;
+    }
+    .step-arrow {
+      display: none;
+    }
+  }
+</style>

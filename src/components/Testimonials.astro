@@ -1,0 +1,221 @@
+---
+const testimonials = [
+  {
+    name: "Dr. Jas Sidhu",
+    title: "Dr. Jas Sidhu",
+    quote: '"How NovoGuide changed the way I plan my implant cases."',
+    image: "/images/doctor_jas.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1",
+  },
+  {
+    name: "Dr. Gizel Pereira",
+    title: "Dr. Gizel Pereira",
+    quote: '"Why I started using guided surgery in my practice."',
+    image: "/images/doctor_gizel.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1",
+  },
+  {
+    name: "Dr. Dhaval Shah",
+    title: "Dr. Dhaval Shah",
+    quote: '"Having someone to discuss my cases with makes the difference."',
+    image: "/images/doctor_dhaval.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1",
+  },
+];
+---
+
+<section
+  id="case-studies"
+  class="testimonials-section theme-light section-padding"
+>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">HEAR FROM THE NOVOGUIDE COMMUNITY</span>
+      <h2 class="section-title">Real clinicians. Real experiences.</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      {
+        testimonials.map((t) => (
+          <div class="testimonial-card" data-video={t.videoUrl}>
+            <div class="media-box">
+              <img src={t.image} alt={t.name} class="doctor-img" />
+              <div class="play-overlay">
+                <div class="play-btn">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <blockquote class="card-quote">{t.quote}</blockquote>
+            <p class="doctor-name">{t.name}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Trust rating footer -->
+    <div class="trust-badge">
+      <div class="stars">★★★★★</div>
+      <span>Trusted by implant clinicians across the UK</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background-color: var(--bg-light-main);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 2rem auto;
+  }
+
+  .section-title {
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    font-weight: 500;
+    color: var(--text-light-title);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-card {
+    background: var(--bg-light-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    transition: var(--transition-smooth);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(217, 163, 98, 0.4);
+  }
+
+  .media-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 20 / 10;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .doctor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .testimonial-card:hover .doctor-img {
+    transform: scale(1.05);
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+
+  .testimonial-card:hover .play-overlay {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .play-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(10, 12, 14, 0.85);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .testimonial-card:hover .play-btn {
+    transform: scale(1.15);
+    background: var(--gold-primary);
+    color: #0b0d0f;
+  }
+
+  .card-quote {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-light-title);
+    margin-bottom: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .doctor-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-light-muted);
+  }
+
+  .trust-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    text-align: center;
+  }
+
+  .stars {
+    color: var(--gold-primary);
+    font-size: 2.2rem;
+    letter-spacing: 0.15em;
+  }
+
+  .trust-badge span {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--text-light-title);
+  }
+
+  @media (max-width: 900px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll(".testimonial-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const videoUrl = card.getAttribute("data-video");
+      window.dispatchEvent(
+        new CustomEvent("open-video", { detail: { url: videoUrl } }),
+      );
+    });
+  });
+</script>
