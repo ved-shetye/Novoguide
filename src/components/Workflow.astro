@@ -45,7 +45,7 @@ const steps = [
 ];
 ---
 
-<section id="how-it-works" class="workflow-section theme-dark section-padding">
+<section id="how-it-works" class="workflow-section theme-light section-padding">
   <div class="container">
     <div class="section-header">
       <span class="section-tag">ONE CASE. ONE COMPLETE WORKFLOW.</span>
@@ -90,9 +90,9 @@ const steps = [
 
 <style>
   .workflow-section {
-    background-color: var(--bg-dark-main);
-    border-top: 1px solid var(--border-dark);
-    border-bottom: 1px solid var(--border-dark);
+    background-color: var(--bg-light-main);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
   }
 
   .section-header {
@@ -104,7 +104,7 @@ const steps = [
   .section-title {
     font-size: clamp(2.4rem, 4vw, 3.5rem);
     font-weight: 400;
-    color: var(--text-dark-title);
+    color: var(--text-light-title);
   }
 
   .workflow-grid {
@@ -114,19 +114,20 @@ const steps = [
   }
 
   .workflow-card {
-    background: var(--bg-dark-card);
-    border: 1px solid var(--border-dark);
+    background: var(--bg-light-card);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-md);
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
     transition: var(--transition-smooth);
   }
 
   .workflow-card:hover {
     border-color: var(--border-gold);
     transform: translateY(-4px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 14px 30px rgba(217, 163, 98, 0.15), 0 4px 12px rgba(0, 0, 0, 0.04);
   }
 
   .card-header {
@@ -141,7 +142,7 @@ const steps = [
     font-family: var(--font-sans);
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--gold-primary);
+    color: var(--gold-secondary);
   }
 
   .step-title {
@@ -150,17 +151,17 @@ const steps = [
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-dark-title);
+    color: var(--text-light-title);
   }
 
   .step-arrow {
     margin-left: auto;
-    color: var(--text-dark-muted);
+    color: var(--text-light-muted);
   }
 
   .step-sub {
     font-size: 0.8rem;
-    color: var(--text-dark-muted);
+    color: var(--text-light-body);
     margin-bottom: 1rem;
     min-height: 2.4rem;
     line-height: 1.35;
@@ -172,7 +173,7 @@ const steps = [
     border-radius: var(--radius-sm);
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .step-img {

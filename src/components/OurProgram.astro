@@ -1,5 +1,5 @@
 ---
-// OurProgram.astro - How we help Dentists with Dental Implants
+// OurProgram.astro - How we help Dentists with Dental Implants (Dark Theme)
 const programSteps = [
   {
     num: "01",
@@ -46,7 +46,7 @@ const programSteps = [
 ];
 ---
 
-<section id="our-program" class="program-section theme-light section-padding" aria-label="Our Program">
+<section id="our-program" class="program-section theme-dark section-padding" aria-label="Our Program">
   <div class="ambient-glow" aria-hidden="true"></div>
   <div class="container">
     <!-- Section Header -->
@@ -145,23 +145,25 @@ const programSteps = [
 
 <style>
   .program-section {
-    background-color: var(--bg-light-main);
+    background-color: var(--bg-dark-main);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
     position: relative;
-    padding: 3rem 0 5rem 0;
+    padding: 3.5rem 0 5.5rem 0;
     overflow: hidden;
   }
 
-  /* Subtle ambient lighting */
+  /* Atmospheric warm glow in dark space */
   .ambient-glow {
     position: absolute;
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
-    width: 1000px;
-    height: 400px;
+    width: 1100px;
+    height: 450px;
     background: radial-gradient(
       ellipse 60% 50% at 50% 30%,
-      rgba(217, 163, 98, 0.07) 0%,
+      rgba(217, 163, 98, 0.08) 0%,
       transparent 75%
     );
     pointer-events: none;
@@ -179,8 +181,8 @@ const programSteps = [
 
   .section-title {
     font-size: clamp(2.1rem, 3.8vw, 3.1rem);
-    font-weight: 600;
-    color: var(--text-light-title);
+    font-weight: 500;
+    color: var(--text-dark-title);
     line-height: 1.2;
     margin-bottom: 1.15rem;
     letter-spacing: -0.01em;
@@ -189,7 +191,7 @@ const programSteps = [
   .section-subtitle {
     font-size: 1rem;
     line-height: 1.65;
-    color: var(--text-light-body);
+    color: var(--text-dark-body);
     max-width: 680px;
     margin: 0 auto;
   }
@@ -204,25 +206,20 @@ const programSteps = [
     align-items: stretch;
   }
 
-  /* Standard Step Card */
+  /* Standard Step Card (Dark Theme) */
   .program-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(217, 163, 98, 0.22);
+    background: var(--bg-dark-card);
+    border: 1px solid var(--border-dark);
     border-radius: var(--radius-md);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 
-      0 4px 20px -3px rgba(17, 22, 29, 0.04),
-      0 1px 3px rgba(0, 0, 0, 0.02),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Hover micro-animation */
+  /* Gold Crown Accent on Hover */
   .program-card::after {
     content: "";
     position: absolute;
@@ -246,11 +243,10 @@ const programSteps = [
 
   .program-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(217, 163, 98, 0.52);
+    border-color: rgba(217, 163, 98, 0.45);
     box-shadow: 
-      0 18px 38px -8px rgba(217, 163, 98, 0.2),
-      0 6px 14px -3px rgba(17, 22, 29, 0.05),
-      inset 0 1px 0 #ffffff;
+      0 18px 40px -8px rgba(0, 0, 0, 0.7),
+      0 0 25px -5px rgba(217, 163, 98, 0.16);
   }
 
   .program-card:hover::after {
@@ -266,7 +262,7 @@ const programSteps = [
     width: 100%;
     height: 205px;
     overflow: hidden;
-    background: #0d1014;
+    background: #080a0d;
   }
 
   .program-img {
@@ -288,7 +284,7 @@ const programSteps = [
       180deg,
       rgba(10, 12, 14, 0.15) 0%,
       transparent 50%,
-      rgba(10, 12, 14, 0.55) 100%
+      rgba(10, 12, 14, 0.75) 100%
     );
     pointer-events: none;
   }
@@ -301,13 +297,13 @@ const programSteps = [
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    background: rgba(10, 12, 14, 0.82);
+    background: rgba(10, 12, 14, 0.88);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(217, 163, 98, 0.4);
+    border: 1px solid rgba(217, 163, 98, 0.45);
     padding: 0.22rem 0.65rem;
     border-radius: var(--radius-full);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     z-index: 2;
   }
 
@@ -315,7 +311,7 @@ const programSteps = [
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: #a0a7b5;
+    color: #8c95a5;
   }
 
   .step-num {
@@ -339,7 +335,7 @@ const programSteps = [
     font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.35;
-    color: var(--text-light-title);
+    color: var(--text-dark-title);
     margin-bottom: 0.65rem;
     letter-spacing: -0.01em;
   }
@@ -347,18 +343,17 @@ const programSteps = [
   .card-desc {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: var(--text-light-body);
+    color: var(--text-dark-body);
   }
 
-  /* CTA Card - Distinctive Luxury Dark Accent Card */
+  /* CTA Card - Distinguished Luxury Gold Accent Card */
   .cta-card {
     grid-column: span 2;
-    background: linear-gradient(145deg, #161920 0%, #0c0e12 100%);
-    border: 1px solid rgba(217, 163, 98, 0.35);
+    background: linear-gradient(145deg, #181d24 0%, #0d1014 100%);
+    border: 1px solid rgba(217, 163, 98, 0.38);
     box-shadow: 
-      0 12px 36px -6px rgba(10, 12, 14, 0.25),
-      0 0 25px -5px rgba(217, 163, 98, 0.15),
-      inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      0 12px 36px -6px rgba(0, 0, 0, 0.5),
+      0 0 30px -5px rgba(217, 163, 98, 0.15);
     color: #ffffff;
     justify-content: center;
   }
@@ -366,9 +361,8 @@ const programSteps = [
   .cta-card:hover {
     border-color: rgba(217, 163, 98, 0.65);
     box-shadow: 
-      0 18px 45px -8px rgba(217, 163, 98, 0.3),
-      0 8px 20px -4px rgba(10, 12, 14, 0.3),
-      inset 0 1px 1px rgba(255, 255, 255, 0.18);
+      0 18px 45px -8px rgba(0, 0, 0, 0.7),
+      0 0 35px -5px rgba(217, 163, 98, 0.28);
   }
 
   .cta-glow-orb {
@@ -377,7 +371,7 @@ const programSteps = [
     right: -40px;
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, rgba(217, 163, 98, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(217, 163, 98, 0.2) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
   }
@@ -419,7 +413,7 @@ const programSteps = [
   .cta-desc {
     font-size: 0.925rem;
     line-height: 1.6;
-    color: #a0a7b5;
+    color: var(--text-dark-body);
     max-width: 580px;
   }
 

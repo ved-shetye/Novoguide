@@ -26,7 +26,7 @@ const testimonials = [
 
 <section
   id="case-studies"
-  class="testimonials-section theme-light section-padding"
+  class="testimonials-section theme-dark section-padding"
 >
   <div class="container">
     <div class="section-header">
@@ -70,7 +70,9 @@ const testimonials = [
 
 <style>
   .testimonials-section {
-    background-color: var(--bg-light-main);
+    background-color: var(--bg-dark-main);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .section-header {
@@ -82,7 +84,7 @@ const testimonials = [
   .section-title {
     font-size: clamp(2.2rem, 3.8vw, 3.2rem);
     font-weight: 500;
-    color: var(--text-light-title);
+    color: var(--text-dark-title);
   }
 
   .testimonials-grid {
@@ -93,8 +95,8 @@ const testimonials = [
   }
 
   .testimonial-card {
-    background: var(--bg-light-card);
-    border: 1px solid var(--border-light);
+    background: var(--bg-dark-card);
+    border: 1px solid var(--border-dark);
     border-radius: var(--radius-md);
     padding: 1.5rem;
     display: flex;
@@ -102,14 +104,14 @@ const testimonials = [
     align-items: center;
     text-align: center;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     transition: var(--transition-smooth);
   }
 
   .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: rgba(217, 163, 98, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(217, 163, 98, 0.15);
+    border-color: rgba(217, 163, 98, 0.45);
   }
 
   .media-box {
@@ -135,7 +137,7 @@ const testimonials = [
   .play-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,7 +145,7 @@ const testimonials = [
   }
 
   .testimonial-card:hover .play-overlay {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.15);
   }
 
   .play-btn {
@@ -155,7 +157,7 @@ const testimonials = [
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition:
       transform 0.3s ease,
       background 0.3s ease;
@@ -170,7 +172,7 @@ const testimonials = [
   .card-quote {
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text-light-title);
+    color: var(--text-dark-title);
     margin-bottom: 0.85rem;
     line-height: 1.4;
   }
@@ -178,7 +180,7 @@ const testimonials = [
   .doctor-name {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text-light-muted);
+    color: var(--text-dark-muted);
   }
 
   .trust-badge {
@@ -198,7 +200,7 @@ const testimonials = [
   .trust-badge span {
     font-size: 0.875rem;
     font-weight: 800;
-    color: var(--text-light-title);
+    color: var(--text-dark-title);
   }
 
   @media (max-width: 900px) {
