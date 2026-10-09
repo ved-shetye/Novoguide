@@ -1,0 +1,432 @@
+---
+// AboutNovoGuide.astro - About NovoGuide overview section
+---
+
+<section id="about" class="about-section theme-light section-padding">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Left Column: Content -->
+      <div class="about-content">
+        <span class="section-tag">ABOUT NOVOGUIDE</span>
+        <h2 class="section-title">NOVOGUIDE - An Overview</h2>
+
+        <div class="about-text-group">
+          <p class="about-description">
+            We guide dentists with their implant journey. NovoGuide brings
+            clinical planning, guided surgery and ongoing support together
+            &ndash; helping clinicians practise implant dentistry with greater
+            confidence.
+          </p>
+
+          <p class="about-description">
+            Roshwin &amp; Thilak are the faces behind NovoGuide, dental implant
+            experts having successfully completed over 1000+ unique and
+            challenging implant cases, and are now here to guide other dentists
+            for successful guidance and flawless execution.
+          </p>
+        </div>
+
+        <div class="about-actions">
+          <a href="#how-it-works" class="btn-gold">
+            <span>Learn More</span>
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Media Showcase (Image / Video at Side - Ready for user upload) -->
+      <div class="about-media-col">
+        <div
+          class="media-card"
+          data-video="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+        >
+          <!-- Clinical Showcase Image / Video Placeholder -->
+          <div class="media-visual-container">
+            <img
+              src="/images/hero_surgical_guide.jpg"
+              alt="NovoGuide Guided Implant Surgery Overview"
+              class="overview-img"
+              loading="lazy"
+            />
+            <div class="media-gradient-overlay"></div>
+
+            <!-- Video Play Button & Indicator -->
+            <button
+              class="play-trigger"
+              aria-label="Play NovoGuide clinical overview video"
+            >
+              <div class="play-pulse"></div>
+              <div class="play-icon-box">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+              </div>
+            </button>
+
+            <!-- Floating Pill Badge -->
+            <div class="media-tag-badge">
+              <span class="live-dot"></span>
+              <span>Clinical Overview</span>
+            </div>
+
+            <!-- Bottom Media Stat Overlay -->
+            <div class="media-stat-glass">
+              <span class="stat-num">1000+</span>
+              <span class="stat-caption"
+                >Challenging cases successfully guided</span
+              >
+            </div>
+          </div>
+
+          <!-- Subtle Developer / User Hint Comment (will not interfere with layout) -->
+          <!-- Note: Image/Video placeholder ready for client assets -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background-color: var(--bg-light-main);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  /* Left Column */
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-title {
+    font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+    font-weight: 600;
+    color: var(--text-light-title);
+    margin-bottom: 1.6rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .about-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-light-title);
+  }
+
+  /* Founders Badge */
+  .founders-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-light-card);
+    border: 1px solid rgba(217, 163, 98, 0.3);
+    padding: 0.85rem 1.35rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2.2rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  }
+
+  .badge-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #0f1216;
+    color: var(--gold-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .badge-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .badge-names {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-light-title);
+    letter-spacing: 0.01em;
+  }
+
+  .badge-role {
+    font-size: 0.8rem;
+    color: var(--gold-secondary);
+    font-weight: 600;
+  }
+
+  .about-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  /* Right Column: Media Showcase */
+  .about-media-col {
+    position: relative;
+    width: 100%;
+  }
+
+  .media-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #0b0d0f;
+    border: 1px solid rgba(217, 163, 98, 0.25);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+
+  .media-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 55px rgba(217, 163, 98, 0.18);
+    border-color: var(--gold-primary);
+  }
+
+  .media-visual-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background-color: #0b0d0f;
+  }
+
+  .overview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .media-card:hover .overview-img {
+    transform: scale(1.05);
+  }
+
+  .media-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(11, 13, 15, 0.2) 0%,
+      rgba(11, 13, 15, 0.4) 60%,
+      rgba(11, 13, 15, 0.85) 100%
+    );
+    transition: background 0.3s ease;
+  }
+
+  .media-card:hover .media-gradient-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 13, 15, 0.1) 0%,
+      rgba(11, 13, 15, 0.3) 60%,
+      rgba(11, 13, 15, 0.8) 100%
+    );
+  }
+
+  /* Play Button */
+  .play-trigger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+  }
+
+  .play-icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgba(11, 13, 15, 0.85);
+    border: 1.5px solid var(--gold-primary);
+    color: var(--gold-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 3px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    transition: var(--transition-smooth);
+    z-index: 2;
+  }
+
+  .media-card:hover .play-icon-box {
+    transform: scale(1.12);
+    background: var(--gold-primary);
+    color: #0b0d0f;
+    box-shadow: 0 10px 30px var(--gold-glow);
+  }
+
+  .play-pulse {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: var(--gold-glow);
+    animation: pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    z-index: 1;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.9);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+  }
+
+  /* Floating Media Tag */
+  .media-tag-badge {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(11, 13, 15, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(217, 163, 98, 0.35);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f4f4f6;
+  }
+
+  .live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold-primary);
+    box-shadow: 0 0 8px var(--gold-primary);
+  }
+
+  /* Glass Stat Overlay at Bottom of Card */
+  .media-stat-glass {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.2rem;
+    right: 1.2rem;
+    background: rgba(11, 13, 15, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .stat-num {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold-primary);
+    line-height: 1;
+  }
+
+  .stat-caption {
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: #e2e4e8;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 960px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .about-content {
+      align-items: flex-start;
+    }
+
+    .media-card {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .founders-badge {
+      width: 100%;
+    }
+
+    .media-stat-glass {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
+</style>
+
+<script>
+  // Enable clicking the media card to launch video modal
+  const mediaCard = document.querySelector(".about-media-col .media-card");
+  if (mediaCard) {
+    mediaCard.addEventListener("click", () => {
+      const videoUrl = mediaCard.getAttribute("data-video");
+      if (videoUrl) {
+        window.dispatchEvent(
+          new CustomEvent("open-video", { detail: { url: videoUrl } }),
+        );
+      }
+    });
+  }
+</script>

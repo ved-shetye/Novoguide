@@ -1,0 +1,505 @@
+---
+// OurProgram.astro - How we help Dentists with Dental Implants
+const programSteps = [
+  {
+    num: "01",
+    title: "Initial Consultation",
+    desc: "Consult with us to discuss your guidance requirements and case-specific details, and specifics on how our program works.",
+    image: "/images/program/program_01_consultation.jpg",
+  },
+  {
+    num: "02",
+    title: "Radiologist-written CBCT Report",
+    desc: "Our radiologists review your CBCT plan and the possible implant positions along with options for your surgical approach.",
+    image: "/images/program/program_02_cbct_report.jpg",
+  },
+  {
+    num: "03",
+    title: "Expert Implant Planning & Report",
+    desc: "Case-to-case assessment of implant planning and surgical approach with a Loom video describing the findings and options.",
+    image: "/images/program/program_03_implant_planning.jpg",
+  },
+  {
+    num: "04",
+    title: "3D Printed Surgical Guide",
+    desc: "Your custom implant guide is manufactured and dispatched with a proper guide to help you with the surgery.",
+    image: "/images/program/program_04_surgical_guide.jpg",
+  },
+  {
+    num: "05",
+    title: "Messaging Platform for Case Discussion",
+    desc: "Our implant experts are available to discuss case-by-case nuances and provide clarity for implementation.",
+    image: "/images/program/program_05_messaging.jpg",
+  },
+  {
+    num: "06",
+    title: "In-Person & Digital Mentorship",
+    desc: "Our expert mentors have crafted a meticulous program to guide dentists through their implant journey, training clinicians to execute with confidence.",
+    image: "/images/program/program_06_mentorship.jpg",
+  },
+  {
+    num: "07",
+    title: "Community & Support",
+    desc: "You’re not doing it alone. Clinical support, case discussions, educational content, and an ever-growing community of implant dentists.",
+    image: "/images/program/program_07_community.jpg",
+  },
+];
+---
+
+<section id="our-program" class="program-section theme-light section-padding" aria-label="Our Program">
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-tag">OUR PROGRAM</span>
+      <h2 class="section-title">How We Help Dentists with Dental Implants</h2>
+      <p class="section-subtitle">
+        A clinician-first guidance model integrating radiology assessment, precision 3D surgical guides, case-specific Loom video reviews, and continuous mentorship.
+      </p>
+    </div>
+
+    <!-- Program Steps Grid -->
+    <div class="program-grid">
+      {
+        programSteps.map((step) => (
+          <article class="program-card">
+            <div class="card-media">
+              <img
+                src={step.image}
+                alt={step.title}
+                class="program-img"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="media-overlay" />
+              <div class="step-badge">
+                <span class="step-prefix">STEP</span>
+                <span class="step-num">{step.num}</span>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <h3 class="card-title">{step.title}</h3>
+              <p class="card-desc">{step.desc}</p>
+            </div>
+          </article>
+        ))
+      }
+
+      <!-- CTA Anchor Card (Completes the 3-column & 2-column grid symmetry) -->
+      <aside class="program-card cta-card">
+        <div class="cta-glow-orb" aria-hidden="true"></div>
+        <div class="cta-body">
+          <div class="cta-header">
+            <span class="cta-tag">GET STARTED</span>
+            <h3 class="cta-title">Ready to Begin Your Guided Implant Journey?</h3>
+            <p class="cta-desc">
+              Connect directly with our implant specialists to review your clinical cases, discuss specific guidance needs, and practice with complete confidence.
+            </p>
+          </div>
+
+          <div class="cta-perks">
+            <div class="perk-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Case-Specific Review</span>
+            </div>
+            <div class="perk-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>1-on-1 Mentorship</span>
+            </div>
+            <div class="perk-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Sub-mm 3D Guides</span>
+            </div>
+          </div>
+
+          <div class="cta-action">
+            <a href="#join" class="btn-gold program-cta-btn">
+              <span>Book a Consultation with Us</span>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .program-section {
+    background-color: var(--bg-light-main);
+    position: relative;
+    padding: 3rem 0 5rem 0;
+    overflow: hidden;
+  }
+
+  /* Subtle ambient lighting */
+  .ambient-glow {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 400px;
+    background: radial-gradient(
+      ellipse 60% 50% at 50% 30%,
+      rgba(217, 163, 98, 0.07) 0%,
+      transparent 75%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 3rem auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-title {
+    font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+    font-weight: 600;
+    color: var(--text-light-title);
+    line-height: 1.2;
+    margin-bottom: 1.15rem;
+    letter-spacing: -0.01em;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-light-body);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* Program Grid Layout */
+  .program-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  /* Standard Step Card */
+  .program-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(217, 163, 98, 0.22);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 
+      0 4px 20px -3px rgba(17, 22, 29, 0.04),
+      0 1px 3px rgba(0, 0, 0, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Hover micro-animation */
+  .program-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-primary),
+      var(--gold-secondary),
+      transparent
+    );
+    opacity: 0;
+    transform: scaleX(0.4);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .program-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(217, 163, 98, 0.52);
+    box-shadow: 
+      0 18px 38px -8px rgba(217, 163, 98, 0.2),
+      0 6px 14px -3px rgba(17, 22, 29, 0.05),
+      inset 0 1px 0 #ffffff;
+  }
+
+  .program-card:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+    left: 10%;
+    right: 10%;
+  }
+
+  /* Media Wrap */
+  .card-media {
+    position: relative;
+    width: 100%;
+    height: 205px;
+    overflow: hidden;
+    background: #0d1014;
+  }
+
+  .program-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .program-card:hover .program-img {
+    transform: scale(1.06);
+  }
+
+  .media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 12, 14, 0.15) 0%,
+      transparent 50%,
+      rgba(10, 12, 14, 0.55) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Step Pill Badge */
+  .step-badge {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(10, 12, 14, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(217, 163, 98, 0.4);
+    padding: 0.22rem 0.65rem;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+
+  .step-prefix {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #a0a7b5;
+  }
+
+  .step-num {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+    letter-spacing: 0.02em;
+  }
+
+  /* Card Content */
+  .card-content {
+    padding: 1.4rem 1.3rem 1.5rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-title {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--text-light-title);
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.01em;
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-light-body);
+  }
+
+  /* CTA Card - Distinctive Luxury Dark Accent Card */
+  .cta-card {
+    grid-column: span 2;
+    background: linear-gradient(145deg, #161920 0%, #0c0e12 100%);
+    border: 1px solid rgba(217, 163, 98, 0.35);
+    box-shadow: 
+      0 12px 36px -6px rgba(10, 12, 14, 0.25),
+      0 0 25px -5px rgba(217, 163, 98, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  .cta-card:hover {
+    border-color: rgba(217, 163, 98, 0.65);
+    box-shadow: 
+      0 18px 45px -8px rgba(217, 163, 98, 0.3),
+      0 8px 20px -4px rgba(10, 12, 14, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  }
+
+  .cta-glow-orb {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(217, 163, 98, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cta-body {
+    position: relative;
+    z-index: 1;
+    padding: 2.25rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .cta-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    margin-bottom: 0.65rem;
+  }
+
+  .cta-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-desc {
+    font-size: 0.925rem;
+    line-height: 1.6;
+    color: #a0a7b5;
+    max-width: 580px;
+  }
+
+  /* Perks List */
+  .cta-perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-bottom: 1.75rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .perk-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: #e2e5eb;
+  }
+
+  .perk-item svg {
+    color: var(--gold-primary);
+    flex-shrink: 0;
+  }
+
+  .program-cta-btn {
+    align-self: flex-start;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1100px) {
+    .program-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .cta-card {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .program-section {
+      padding: 2.5rem 0 4rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 2.25rem;
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+    }
+
+    .program-grid {
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+
+    .cta-card {
+      grid-column: span 1;
+    }
+
+    .card-media {
+      height: 190px;
+    }
+
+    .cta-body {
+      padding: 1.75rem 1.4rem;
+    }
+
+    .cta-title {
+      font-size: 1.6rem;
+    }
+
+    .program-cta-btn {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,447 @@
+---
+// NovoHighlights.astro - Compact Square Highlights section with minimalist 3D icon art
+const highlights = [
+  {
+    id: "specialist",
+    type: "feature",
+    title: "Guided by Experienced Implant Specialist",
+    image: "/images/highlights/specialist.jpg",
+  },
+  {
+    id: "workflow",
+    type: "feature",
+    title: "Full Digital Workflow",
+    image: "/images/highlights/workflow.jpg",
+  },
+  {
+    id: "community",
+    type: "feature",
+    title: "Support & Community",
+    sub: "Events & Education",
+    image: "/images/highlights/community.jpg",
+  },
+  {
+    id: "production",
+    type: "feature",
+    title: "State of the Art 3D Guide Production",
+    image: "/images/highlights/production.jpg",
+  },
+  {
+    id: "clinicians-guided",
+    type: "stat",
+    stat: "100+",
+    title: "Clinicians Guided",
+    pill: "Mentored",
+    image: "/images/highlights/clinicians.jpg",
+  },
+  {
+    id: "implants-placed",
+    type: "stat",
+    stat: "1000+",
+    title: "Implants Placed",
+    pill: "Guided",
+    image: "/images/highlights/implants.jpg",
+  },
+];
+---
+
+<section class="highlights-section theme-light" aria-label="Key Highlights">
+  <div class="highlights-ambient-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="highlights-grid">
+      {
+        highlights.map((item) => (
+          <div
+            class={`highlight-card ${item.type === "stat" ? "stat-card" : "feature-card"}`}
+          >
+            <!-- Minimalist 3D Icon Portal -->
+            <div class="card-visual-portal">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="card-visual-img"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div class="card-text-content">
+              {item.type === "stat" ? (
+                <div class="stat-group">
+                  <span class="stat-number">{item.stat}</span>
+                  <h3 class="card-text-title">{item.title}</h3>
+                  {item.pill && <span class="stat-pill">{item.pill}</span>}
+                </div>
+              ) : (
+                <div class="feature-group">
+                  <h3 class="card-text-title">{item.title}</h3>
+                  {item.sub && <p class="card-text-sub">{item.sub}</p>}
+                </div>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .highlights-section {
+    background-color: var(--bg-light-main);
+    position: relative;
+    padding: 1rem 0 3.75rem 0;
+    overflow: hidden;
+  }
+
+  /* Sleek top ambient hairline divider */
+  .highlights-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100%, 1240px);
+    height: 1px;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(217, 163, 98, 0.45) 0%,
+      rgba(217, 163, 98, 0.15) 50%,
+      transparent 85%
+    );
+  }
+
+  /* Atmospheric warm back-glow */
+  .highlights-ambient-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 260px;
+    background: radial-gradient(
+      ellipse 60% 50% at 50% 40%,
+      rgba(217, 163, 98, 0.08) 0%,
+      transparent 75%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Highlights Grid - Centered Row of Compact Square Cards */
+  .highlights-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 150px));
+    justify-content: center;
+    gap: 1.1rem;
+    align-items: center;
+  }
+
+  /* Frosted Glassmorphic Small Square Card */
+  .highlight-card {
+    position: relative;
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 1 / 1;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(217, 163, 98, 0.22);
+    border-radius: 16px;
+    padding: 0.85rem 0.65rem 0.75rem 0.65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 
+      0 4px 16px -3px rgba(17, 22, 29, 0.04),
+      0 1px 2px rgba(0, 0, 0, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  /* Stat Card Accent */
+  .stat-card {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(253, 249, 242, 0.92) 100%
+    );
+    border-color: rgba(217, 163, 98, 0.28);
+  }
+
+  /* Light Sheen Sweep on Hover */
+  .highlight-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.65) 45%,
+      rgba(217, 163, 98, 0.15) 55%,
+      transparent 75%
+    );
+    transition: transform 0.85s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .highlight-card:hover::before {
+    transform: translateX(260%);
+  }
+
+  /* Tapered Crown Accent Beam on Top Border */
+  .highlight-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-primary),
+      var(--gold-secondary),
+      transparent
+    );
+    opacity: 0;
+    transform: scaleX(0.4);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(217, 163, 98, 0.55);
+    box-shadow: 
+      0 14px 30px -6px rgba(217, 163, 98, 0.22),
+      0 4px 10px -2px rgba(17, 22, 29, 0.05),
+      inset 0 1px 0 #ffffff;
+  }
+
+  .highlight-card:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+    left: 10%;
+    right: 10%;
+  }
+
+  /* Clean Minimalist 3D Icon Portal */
+  .card-visual-portal {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 auto 0.5rem auto;
+    flex-shrink: 0;
+    border: 1px solid rgba(217, 163, 98, 0.28);
+    background: #090b0e;
+    box-shadow: 
+      0 4px 12px -2px rgba(10, 12, 14, 0.22),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2;
+  }
+
+  .card-visual-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .highlight-card:hover .card-visual-portal {
+    transform: translateY(-2px) scale(1.06);
+    border-color: var(--gold-hover);
+    box-shadow: 
+      0 8px 18px -2px rgba(217, 163, 98, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  }
+
+  .highlight-card:hover .card-visual-img {
+    transform: scale(1.1);
+  }
+
+  /* Card Text Layout & Hierarchy */
+  .card-text-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Stat Group Styling */
+  .stat-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.1rem;
+  }
+
+  .stat-number {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(
+      135deg,
+      #9b6d2e 0%,
+      #d9a362 45%,
+      #caa060 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-bottom: 0.15rem;
+    filter: drop-shadow(0 2px 4px rgba(217, 163, 98, 0.18));
+    transition: transform 0.35s ease;
+  }
+
+  .highlight-card:hover .stat-number {
+    transform: scale(1.05);
+  }
+
+  .stat-group .card-text-title {
+    font-family: var(--font-sans);
+    font-size: 0.69rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-light-title);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  /* Micro Pill for Social Proof Stats */
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.25rem;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #9b6d2e;
+    background: rgba(217, 163, 98, 0.09);
+    padding: 0.1rem 0.42rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(217, 163, 98, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .highlight-card:hover .stat-pill {
+    background: rgba(217, 163, 98, 0.16);
+    border-color: rgba(217, 163, 98, 0.38);
+    color: #7d5218;
+  }
+
+  /* Feature Group Styling */
+  .feature-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.2rem;
+  }
+
+  .feature-group .card-text-title {
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-light-title);
+    letter-spacing: -0.01em;
+  }
+
+  /* Refined Badge Pill for Feature Subtitles */
+  .card-text-sub {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.2rem;
+    padding: 0.12rem 0.44rem;
+    border-radius: var(--radius-full);
+    background: rgba(217, 163, 98, 0.08);
+    border: 1px solid rgba(217, 163, 98, 0.22);
+    font-size: 0.63rem;
+    font-weight: 600;
+    color: #9b6d2e;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    transition: all 0.3s ease;
+  }
+
+  .highlight-card:hover .card-text-sub {
+    background: rgba(217, 163, 98, 0.15);
+    border-color: rgba(217, 163, 98, 0.38);
+    color: #7d5218;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
+    .highlights-grid {
+      grid-template-columns: repeat(3, minmax(0, 145px));
+      gap: 1.15rem;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .highlights-section {
+      padding: 0.75rem 0 2.75rem 0;
+    }
+
+    .highlights-grid {
+      grid-template-columns: repeat(2, minmax(0, 140px));
+      gap: 0.85rem;
+    }
+
+    .highlight-card {
+      max-width: 140px;
+      padding: 0.75rem 0.55rem 0.65rem 0.55rem;
+      border-radius: 14px;
+    }
+
+    .card-visual-portal {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-number {
+      font-size: 1.4rem;
+    }
+
+    .stat-group .card-text-title {
+      font-size: 0.65rem;
+    }
+
+    .feature-group .card-text-title {
+      font-size: 0.69rem;
+    }
+
+    .stat-pill,
+    .card-text-sub {
+      font-size: 0.58rem;
+      padding: 0.08rem 0.36rem;
+    }
+  }
+</style>
