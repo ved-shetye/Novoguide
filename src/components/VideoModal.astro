@@ -1,23 +1,34 @@
 ---
+// VideoModal.astro - Supports both embedded iframes and native HTML5 video files
 ---
 
 <div id="video-modal" class="modal-backdrop" role="dialog" aria-modal="true">
   <div class="modal-content">
     <button id="close-video-modal" class="modal-close" aria-label="Close modal">&times;</button>
     <div class="video-container">
-      <!-- Simulated High Definition Video Player with Dental Case Walkthrough -->
-      <div class="video-placeholder">
-        <iframe 
-          id="modal-iframe" 
-          width="100%" 
-          height="100%" 
-          src="" 
-          title="NovoGuide Clinician Testimonial Video" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-      </div>
+      <!-- Embedded YouTube / External iframe player -->
+      <iframe 
+        id="modal-iframe" 
+        class="modal-player"
+        width="100%" 
+        height="100%" 
+        src="" 
+        title="NovoGuide Clinician Testimonial Video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+
+      <!-- HTML5 Native Video Player for local MP4 files -->
+      <video
+        id="modal-video"
+        class="modal-player"
+        controls
+        playsinline
+        preload="metadata"
+      >
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </div>
@@ -28,26 +39,40 @@
     width: 100%;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
     background: #000;
+    overflow: hidden;
   }
 
-  .video-placeholder {
+  .modal-player {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
+    display: none;
+    object-fit: contain;
   }
 </style>
 
 <script>
   const modal = document.getElementById('video-modal');
   const closeBtn = document.getElementById('close-video-modal');
-  const iframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
+  const iframe = document.getElementById('modal-iframe') as HTMLIFrameElement | null;
+  const video = document.getElementById('modal-video') as HTMLVideoElement | null;
 
   function closeModal() {
-    if (modal && iframe) {
+    if (modal) {
       modal.classList.remove('active');
+    }
+    if (iframe) {
       iframe.src = '';
+      iframe.style.display = 'none';
+    }
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+      video.src = '';
+      video.style.display = 'none';
     }
   }
 
@@ -63,12 +88,46 @@
     });
   }
 
+  // Close on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
   // Listen for custom play events
   window.addEventListener('open-video', (e: any) => {
-    const videoUrl = e.detail?.url || 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
-    if (modal && iframe) {
-      iframe.src = videoUrl;
-      modal.classList.add('active');
+    const videoUrl = e.detail?.url;
+    if (!modal || !videoUrl) return;
+
+    const isDirectVideo = 
+      videoUrl.endsWith('.mp4') || 
+      videoUrl.endsWith('.webm') || 
+      videoUrl.includes('/videos/');
+
+    if (isDirectVideo) {
+      if (iframe) {
+        iframe.src = '';
+        iframe.style.display = 'none';
+      }
+      if (video) {
+        video.style.display = 'block';
+        video.src = videoUrl;
+        video.load();
+        video.play().catch(() => {});
+      }
+    } else {
+      if (video) {
+        video.pause();
+        video.src = '';
+        video.style.display = 'none';
+      }
+      if (iframe) {
+        iframe.style.display = 'block';
+        iframe.src = videoUrl;
+      }
     }
+
+    modal.classList.add('active');
   });
 </script>
